@@ -5,7 +5,7 @@ Created on Mon Jun 16 12:37:01 2014
 @author: JMBELDA
 """
 
-from FuzzyVars import *
+from .FuzzyVars import *
 from numpy import zeros, isnan
 
 class FuzzyTree(object):
@@ -264,9 +264,9 @@ class FuzzyTree(object):
         tree = self._output_Node_tree(self.NodeParent)
         
         f = open(filename, "w")
-        print >> f, "digraph G{"
-        print >> f, tree
-        print >> f, "}"
+        print("digraph G{",file=f)
+        print(tree,file=f)
+        print("}",file=f)
         
         f.close()
         
@@ -328,14 +328,14 @@ class FuzzyTree(object):
         for rc in RealClass.keys():
             head += rc + "\t"
         
-        if print_matrix: print head
+        if print_matrix: print(head)
         
         for ec in Result.keys():
             row = ec + "\t"
             for rc in RealClass.keys():
                 row += str(output[rc][ec]) + "\t"
             
-            if print_matrix: print row
+            if print_matrix: print(row)
                     
         return output
 

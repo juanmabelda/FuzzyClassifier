@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="FuzzyTree", # Replace with your own username
-    version="0.1",
+    version="0.122",
     author="Juanma Belda",
     author_email="jmbeldalois@gmail.com",
     description="A Fuzzy Algorithm for classification",

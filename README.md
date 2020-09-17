@@ -57,8 +57,11 @@ There are other strategies implemented to do the fuzzification
 * Crisp fuzzification (for crisp variables): *crisp_partition*
 * To split in determined points: *points_partition*
 
-
 Other strategies can be implemented through the class $Fuzzification$.
+
+In our case, all six variables are fuzzified as following
+
+![Fuzzified variables](./Media/fuzzyfied_variables.png)
 
 ### Creating the tree
 
@@ -104,6 +107,24 @@ IF (Temp==3. High) AND (Month==3. High) AND (Wind==3. High)  THEN (Ozone==2. Med
 ```
 
 
+### The confussion matrix
+
+FuzzyTree is able to print the confussion matrix of a given FuzzySet.
+
+```python
+ft.confussion_matrix(fvVars[varLHS], fs)
+```
+
+This produces the following output
+
+```
+Ozone   1. Low  2. Medium       3. High
+1. Low  42.0    18.0    5.0
+2. Medium       1.0     4.0     0.0
+3. High 3.0     4.0     30.0
+```
+
+
 #### The GraphViz dot graphic
 
 The figure of the tree can be sent to a [.dot](https://graphviz.org/doc/info/output.html#d:dot) file
@@ -111,6 +132,10 @@ The figure of the tree can be sent to a [.dot](https://graphviz.org/doc/info/out
 ```python
 ft.output_to_dot_graphviz('./the_file_name.dot')
 ```
+
+Which produces the output
+
+![FuzzyTree drawing](./Media/FuzzyTree.PNG)
 
 
 
