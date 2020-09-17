@@ -8,7 +8,7 @@ Yuan, Yufei, & Michael J. Shaw. "Induction of fuzzy decision trees". Fuzzy Sets 
 
 Write in the console (in the same folder you download the code)
 
-```{python}
+```python
 python setup.py install
 ```
 
@@ -19,7 +19,7 @@ To build a FuzzyTree classifier you need to fuzzify the variables of use and the
 With the code you download a database of air quality. It is a subset of the database (<https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html>)
 
 You can load the database
-```{python}
+```python
 import pandas as pd
 data = pd.read_csv("./demo/airquality.csv", index_col=0)
 ```
@@ -28,7 +28,7 @@ data = pd.read_csv("./demo/airquality.csv", index_col=0)
 
 To do the fuzzification you need to have some criteria and providing names to each of the levels.
 
-```{python}
+```python
 from FuzzyTree import *
 
 #%% Vars in the file
@@ -54,8 +54,8 @@ for v in  variables:
 
 There are other strategies implemented to do the fuzzification
 
-* Crisp fuzzification (for crisp variables): $crisp_partition$
-* To split in determined points: $points_partition$
+* Crisp fuzzification (for crisp variables): *crisp_partition*
+* To split in determined points: *points_partition*
 
 
 Other strategies can be implemented through the class $Fuzzification$.
@@ -68,7 +68,7 @@ To create a tree, you are required to provided an object FuzzySet and the Beta a
 * Beta : Threshold level of truthness to become a Leaf
 * Alfa : Minimum activation for reliable evidence
 
-```{python}
+```python
 Beta = 0.8
 Alpha = 0.8
 ft = FuzzyTree(fs, Beta, Alpha, varRHS, varLHS)
@@ -86,7 +86,7 @@ There are several outputs for the FuzzyTree classifier.
 
 The rules for classification are obtained printing the FuzzyTree object.
 
-```{python}
+```python
 print(ft)
 ```
 
@@ -104,7 +104,13 @@ IF (Temp==3. High) AND (Month==3. High) AND (Wind==3. High)  THEN (Ozone==2. Med
 ```
 
 
-####
+#### The GraphViz dot graphic
+
+The figure of the tree can be sent to a [.dot](https://graphviz.org/doc/info/output.html#d:dot) file
+
+```python
+ft.output_to_dot_graphviz('./the_file_name.dot')
+```
 
 
 
