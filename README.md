@@ -57,7 +57,7 @@ There are other strategies implemented to do the fuzzification
 * Crisp fuzzification (for crisp variables): *crisp_partition*
 * To split in determined points: *points_partition*
 
-Other strategies can be implemented through the class $Fuzzification$.
+Other strategies can be implemented through the class *Fuzzification*.
 
 In our case, all six variables are fuzzified as following
 
