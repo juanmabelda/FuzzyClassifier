@@ -5,7 +5,7 @@ Created on Wed Sep  3 16:07:03 2014
 @author: juanma
 """
 
-from FuzzyVars import *
+from .FuzzyVars import *
 from scipy.optimize import fmin_slsqp
 from numpy import percentile, array, diff
 

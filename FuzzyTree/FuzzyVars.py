@@ -65,7 +65,7 @@ class Fuzzification(object):
     ==========
     
     - varName : The name of the Fuzzy variable resulting as output
-    - **kargs : Pairs of linguistic labeles and Closures of Fuzzizcation fns
+    - **kargs : Pairs of linguistic labels and Closures of Fuzzizcation fns
     '''
     
     def __init__(self, varName, **kargs):
@@ -102,7 +102,7 @@ class Fuzzification(object):
             
         axis([min(values), max(values), 0, 1.1])
         legend(var.keys(), loc = "lower right")
-        print var.keys()
+        print (var.keys())
             
         show()
 
@@ -272,7 +272,7 @@ class FuzzyVar(object):
     def __len__(self):
         return len(self._values.values()[0])
         
-    def next(self):
+    def __next__(self):
         try:
             output = self.value(self._current)
         except:
@@ -469,8 +469,9 @@ class FuzzySet(object):
         return cad
         
     def __len__(self):
-        var = self._vals.keys()[0]
-        return len(self._vals[var])
+        var = list(self._vals.keys())[0]
+        ks  = list(self[var].keys())[0]
+        return len(self._vals[var][ks])
             
     
     def ambiguity(self, Attribute):
